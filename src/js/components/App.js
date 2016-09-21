@@ -1,5 +1,5 @@
 import React from 'react'
-import CoffeeSelections from './CoffeeSelections'
+import CoffeeSelectors from '../Containers/CoffeeSelectors'
 import Flag from './Flag'
 import Status from '../containers/Status'
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <span>Select a coffee!</span>
-      <CoffeeSelections/>
+      <CoffeeSelectors/>
       <Flag className='hello' />
       <Status/>
     </div>

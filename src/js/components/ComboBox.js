@@ -1,15 +1,17 @@
 import React from 'react'
 
-const ComboBox = () => {
+const ComboBox = (props) => {
   return (
-    <div>
-      ComboBox
-    </div>
+    <select>
+      {props.items.map(function(item) {
+        return <option key={item.id}>{item.text}</option>
+      })}
+    </select>
   )
 }
 
 ComboBox.propTypes = {
-  options: React.PropTypes.arrayOf(React.PropTypes.string)
+  items: React.PropTypes.arrayOf(React.PropTypes.object)
 };
 
 export default ComboBox
