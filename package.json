@@ -1,0 +1,26 @@
+{
+  "name": "infocoffee",
+  "version": "0.0.1",
+  "description": "Programming test for info.nl regarding coffee varieties",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meinte/infocoffee.git"
+  },
+  "keywords": [
+    "Coffee",
+    "assignment",
+    "info"
+  ],
+  "author": "Meinte van't Kruis <meinte@gmail.com> (http://hellomeinte.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meinte/infocoffee/issues"
+  },
+  "homepage": "https://github.com/meinte/infocoffee#readme"
+}
