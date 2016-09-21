@@ -9,3 +9,5 @@ describe("<Flag className='brazil' />", () => {
     expect(flagElem.props().className ).to.equal( 'brazil' )
   })
 })
+
+describe('')

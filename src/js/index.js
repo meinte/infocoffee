@@ -1,16 +1,31 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './components/App'
-
-require("../css/main.css")
+import varieties from './services/coffee-varieties'
+import appReducers from './reducers'
+import {setLoaded,setLoadError} from './actions'
 
 console.log('init')
+const store = createStore(appReducers)
 
-const rootEl = document.getElementById('root')
-const render = () => ReactDOM.render(
-  <App/>,
-  rootEl
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 )
 
-render()
+//TOD PUT SOMEPLACE
+
+varieties.getData((err,result) => {
+  if(err){
+    store.dispatch(setLoaderror(err))
+  }else{
+    store.dispatch(setLoaded())
+  }
+  console.log(err)
+  console.log(result)
+})
+
