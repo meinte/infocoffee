@@ -1,12 +1,8 @@
 var gulp = require("gulp");
 var gutil = require("gulp-util");
 var webpack = require("webpack");
-var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
-var babel = require('gulp-babel');
-var gulp = require('gulp');
 var print = require('gulp-print');
-var flatten = require('gulp-flatten');
 const eslint = require('gulp-eslint');
 
 gulp.task('lint', () => {
@@ -16,8 +12,8 @@ gulp.task('lint', () => {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('default',['lint','static','webpack:build-dev'], function() {
-    gulp.watch(['src/**/*'], ['static','webpack:build-dev']);
+gulp.task('default',['lint', 'static', 'webpack:build-dev'], function() {
+    gulp.watch(['src/**/*'], ['lint', 'static', 'webpack:build-dev']);
 });
 
 gulp.task('copyImages', function() {
