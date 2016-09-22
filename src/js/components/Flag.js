@@ -3,14 +3,12 @@ import React from 'react'
 
 const Flag = (props) => {
   return (
-    <div className={props.className}>
-      flag
-    </div>
+    <img src={props.imgSrc} alt="Image of country flag" />
   )
 }
 
 Flag.propTypes = {
-  className: React.PropTypes.string.isRequired
-};
+  imgSrc: React.PropTypes.string.isRequired
+}
 
 export default Flag

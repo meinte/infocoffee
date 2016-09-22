@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import appstate from './appstate'
+import loadstate from './loadstate'
 import coffee from './coffee'
+import uistate from './uistate'
 
 const appReducers = combineReducers({
-  appstate,
-  coffee
+  loadstate,
+  coffee,
+  uistate
 })
 
 export default appReducers
