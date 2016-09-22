@@ -11,8 +11,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  debug: true,
-  devtool: 'eval-source-map',
+  debug: false,
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -29,5 +28,20 @@ module.exports = {
       { test: /\.css$/, loader: "style!css" },
 
     ]
-  }
+  },
+  plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+          compress: {
+              warnings: false,
+          },
+          output: {
+              comments: false,
+          },
+      }),
+  ]
 }

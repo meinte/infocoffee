@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-const Flag = (props) => {
+const Flag = props => {
   return (
-    <div className='flag-container'>
-      <img src={props.imgSrc} alt="Image of country flag" className='flag'/>
+    <div className="flag-container">
+      <img src={props.imgSrc} alt="Image of country flag" className="flag"/>
     </div>
   )
 }

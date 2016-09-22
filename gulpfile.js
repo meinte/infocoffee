@@ -3,21 +3,22 @@ var gutil = require("gulp-util");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
-var babel = require('gulp-babel');
-var gulp = require('gulp');
+var webpackConfigProduction = require("./webpack.config.prod.js");
 var print = require('gulp-print');
-var flatten = require('gulp-flatten');
+var del = require('del');
 const eslint = require('gulp-eslint');
 
 gulp.task('lint', () => {
-    return gulp.src(['src/js/**/*.js'])
+    return gulp.src(['src/js/**/*.js','!src/js/services/coffee-varieties.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('default',['lint','static','webpack:build-dev'], function() {
-    gulp.watch(['src/**/*'], ['static','webpack:build-dev']);
+gulp.task('default',['static','webpack:build-dev','webpack-dev-server'])
+
+gulp.task('watch',['lint', 'static','webpack:build-dev'], function() {
+    gulp.watch(['src/**/*'], ['lint', 'static', 'webpack:build-dev']);
 });
 
 gulp.task('copyImages', function() {
@@ -31,8 +32,28 @@ gulp.task('static',['copyImages'], function(){
     .pipe(gulp.dest('build'));
 })
 
+gulp.task('clean', function () {
+  return del('build');
+});
+
+
+
+gulp.task('webpack:build-dev-production',['static'], function(callback){
+  var prodConfig = Object.create(webpackConfigProduction);
+
+  // create a single instance of the compiler to allow caching
+  var prodCompiler = webpack(prodConfig);
+
+  prodCompiler.run(function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack:build-production", err);
+    gutil.log("[webpack:build-dev]", stats.toString({
+      colors: true
+    }));
+    callback();
+  });
+})
+
 var myDevConfig = Object.create(webpackConfig);
-myDevConfig.devtool = "sourcemap";
 myDevConfig.debug = true;
 
 // create a single instance of the compiler to allow caching
@@ -46,5 +67,38 @@ gulp.task("webpack:build-dev", function(callback) {
       colors: true
     }));
     callback();
+  });
+});
+
+gulp.task("webpack-dev-server", function(callback) {
+  // modify some webpack config options
+  var myConfig = Object.create(webpackConfig);
+  myConfig.devtool = "eval";
+  myConfig.debug = true;
+
+  // Start a webpack-dev-server
+  new WebpackDevServer(webpack(myConfig), {
+    contentBase:"build/",
+    publicPath: "/" + myConfig.output.publicPath,
+    stats: {
+      colors: true
+    }
+  }).listen(8080, "localhost", function(err) {
+    if(err) throw new gutil.PluginError("webpack-dev-server", err);
+    gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+  });
+});
+
+gulp.task("webpack-prod-server", function(callback) {
+  var myConfig = Object.create(webpackConfigProduction);
+  new WebpackDevServer(webpack(myConfig), {
+    contentBase:"build/",
+    publicPath: "/" + myConfig.output.publicPath,
+    stats: {
+      colors: false
+    }
+  }).listen(8080, "localhost", function(err) {
+    if(err) throw new gutil.PluginError("webpack-dev-server", err);
+    gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
   });
 });

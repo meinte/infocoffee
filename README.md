@@ -1,3 +1,34 @@
+
+# Installing
+
+```
+  git clone https://github.com/meinte/infocoffee.git
+  cd infocoffee
+  npm i
+```
+
+# Running
+
+```
+gulp
+// open browser, set to http://localhost:8080/webpack-dev-server/index.html
+```
+
+# Testing
+
+```
+npm test
+```
+
+# To run a production build
+```
+gulp clean
+gulp webpack:build-dev-production
+//build files are in the build folder
+```
+
+=======
+
 # Coffee varieties of the world ☕️
 
 ## Coffee varieties of the world application assignment

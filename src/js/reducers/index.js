@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 import loadstate from './loadstate'
 import coffee from './coffee'
 import uistate from './uistate'

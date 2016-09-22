@@ -1,4 +1,4 @@
-import {LOAD_OK,LOAD_ERROR,LOADING} from '../actions'
+import {LOAD_OK, LOAD_ERROR} from '../actions'
 
 export default (state = 'loading', action) => {
   switch (action.type) {
