@@ -10,7 +10,7 @@ var flatten = require('gulp-flatten');
 const eslint = require('gulp-eslint');
 
 gulp.task('lint', () => {
-    return gulp.src(['src/js/**/*.js'])
+    return gulp.src(['src/js/**/*.js','!src/js/services/coffee-varieties.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());

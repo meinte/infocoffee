@@ -1,21 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
-const mapStateToProps = (state) => ({ 
-  className: 'state '+state.loadstate 
+const mapStateToProps = state => ({
+  className: `state ${state.loadstate}`
 })
 
-let Status = (props) => {
+let Status = props => {
   return (
     <div className={props.className}>
-      <div className='inner'></div>
+      <div className="inner"></div>
     </div>
   )
 }
 
 Status.propTypes = {
   className: React.PropTypes.string.isRequired
-};
+}
 
 Status = connect(
   mapStateToProps

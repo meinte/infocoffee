@@ -4,28 +4,27 @@ export const COUNTRY_SELECTED = 'COUNTRY_SELECTED'
 export const REGION_SELECTED = 'REGION_SELECTED'
 export const VARIETY_SELECTED = 'VARIETY_SELECTED'
 
-
-export const coffeeLoaded = (result) => ({
+export const coffeeLoaded = result => ({
   type: LOAD_OK,
   result
 })
 
-export const coffeeLoadError = (text) => ({
+export const coffeeLoadError = text => ({
   type: LOAD_ERROR,
   text
 })
 
-export const selectCountry = (country) => ({
+export const selectCountry = country => ({
   type: COUNTRY_SELECTED,
   country
 })
 
-export const selectRegion = (region) => ({
+export const selectRegion = region => ({
   type: REGION_SELECTED,
   region
 })
 
-export const selectVariety = (variety) => ({
+export const selectVariety = variety => ({
   type: VARIETY_SELECTED,
   variety
 })
