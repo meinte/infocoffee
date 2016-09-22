@@ -1,6 +1,6 @@
 {
   "name": "infocoffee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Programming test for info.nl regarding coffee varieties",
   "main": "index.js",
   "scripts": {
