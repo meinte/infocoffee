@@ -20,6 +20,13 @@ gulp
 npm test
 ```
 
+# To run a production build
+```
+gulp clean
+gulp webpack:build-dev-production
+//build files are in the build folder
+```
+
 =======
 
 # Coffee varieties of the world ☕️

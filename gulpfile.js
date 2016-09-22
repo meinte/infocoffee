@@ -38,7 +38,7 @@ gulp.task('clean', function () {
 
 
 
-gulp.task('webpack:build-dev-production',['clean','static'], function(callback){
+gulp.task('webpack:build-dev-production',['static'], function(callback){
   var prodConfig = Object.create(webpackConfigProduction);
 
   // create a single instance of the compiler to allow caching
