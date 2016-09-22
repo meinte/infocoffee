@@ -9,10 +9,12 @@ const mapStateToProps = (state) => ({
 
 let Flags = (props) => {
   return (
-    <div>
-      {props.data.map(function(img,i) {
-          return <Flag key = {i} imgSrc = {img} />
-      })}
+    <div className='flags-container'>
+      <div className='inner'>
+        {props.data.map(function(img,i) {
+            return <Flag key = {i} imgSrc = {img} />
+        })}
+      </div>
     </div>
   )
 }

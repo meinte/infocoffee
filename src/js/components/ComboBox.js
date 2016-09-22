@@ -4,10 +4,10 @@ import {DEFAULT_STATE} from '../reducers/uistate'
 const ComboBox = (props) => {
   //if option selected is 'Choose Option' val = '-1' => change to null
   return (
-    <div>
+    <div className='coffeeselect'>
       <label htmlFor = {props.id}>{props.label}</label>
       <select value = {props.val} id = {props.id} onChange = {(e)=>{props.onChange(e.target.value)}}>
-        <option key = 'empty' value={DEFAULT_STATE}>Choose option</option>
+        <option key = 'empty' value={DEFAULT_STATE}>Choose Option</option>
         {props.items.map(function(item,i) {
           return <option key={i}>{item}</option>
         })}

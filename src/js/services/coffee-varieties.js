@@ -116,7 +116,7 @@ var varieties;
       } else {
         cb(null, data);
       }
-    }, 100)
+    }, 1000)
   }
 
   if (typeof module !== 'undefined') {
