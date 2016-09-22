@@ -54,13 +54,12 @@ export const filterFlags = (coffee,uistate) => {
   const toReturn = []
   const availableCountries = filterCountries(coffee,uistate)
   coffee.map((data) => {
-    if(data.land == uistate.selected_country){
-      return [data.img]
-    }else{
-      if(availableCountries.indexOf(data.land)>-1){
+    if(uistate.selected_country != DEFAULT_STATE){
+      if(data.land==uistate.selected_country){
         toReturn.push(data.img)
       }
-
+    }else if(availableCountries.indexOf(data.land)>-1){
+      toReturn.push(data.img)
     }
   })
   return toReturn
