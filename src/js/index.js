@@ -17,8 +17,7 @@ render(
   document.getElementById('react_container')
 )
 
-//TOD PUT SOMEPLACE
-
+//This should possible be in middleware if it becomes more complex
 varieties.getData((err,result) => {
   if(err){
     store.dispatch(coffeeLoadError(err))

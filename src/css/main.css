@@ -68,6 +68,7 @@ h1{
 }
 
 .flags-container{
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -89,7 +90,7 @@ h1{
 .flag{
     display: block;
     position:absolute;
-    width: 160%;
+    width: 170%;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;

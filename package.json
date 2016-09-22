@@ -4,7 +4,7 @@
   "description": "Programming test for info.nl regarding coffee varieties",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require jsdom-global/register"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -40,8 +40,10 @@
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "eslint": "^3.5.0",
+    "eslint-config-google": "^0.6.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
     "gulp-flatten": "^0.3.1",
     "gulp-less": "^3.1.0",
     "gulp-print": "^2.0.1",

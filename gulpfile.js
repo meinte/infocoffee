@@ -7,8 +7,16 @@ var babel = require('gulp-babel');
 var gulp = require('gulp');
 var print = require('gulp-print');
 var flatten = require('gulp-flatten');
+const eslint = require('gulp-eslint');
 
-gulp.task('default',['static','webpack:build-dev'], function() {
+gulp.task('lint', () => {
+    return gulp.src(['src/js/**/*.js'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
+
+gulp.task('default',['lint','static','webpack:build-dev'], function() {
     gulp.watch(['src/**/*'], ['static','webpack:build-dev']);
 });
 

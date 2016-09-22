@@ -9,9 +9,9 @@ const mapStateToProps = (state) => ({
   regions: filterRegions(state.coffee,state.uistate),
   countries: filterCountries(state.coffee,state.uistate),
   varieties: filterVarieties(state.coffee,state.uistate),
-  country:state.uistate.selected_country,
-  region:state.uistate.selected_region,
-  variety:state.uistate.selected_variety,
+  country:state.uistate.selectedCountry,
+  region:state.uistate.selectedRegion,
+  variety:state.uistate.selectedVariety,
   className:'coffeeselectors '+state.loadstate
 })
 
