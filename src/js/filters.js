@@ -2,7 +2,7 @@ import {DEFAULT_STATE} from './reducers/uistate'
 
 export const filterRegions = (coffee,uistate) => {
   const toReturn = []
-  coffee.map((data) => {
+  coffee.forEach((data) => {
     const isPartOfCountry = (data.land == uistate.selected_country || uistate.selected_country == DEFAULT_STATE)
     const isPartOfVariety = (data.variety.indexOf(uistate.selected_variety)>-1 || uistate.selected_variety == DEFAULT_STATE)
     const isUnique = toReturn.indexOf(data.region)<0
@@ -18,7 +18,7 @@ export const filterRegions = (coffee,uistate) => {
 
 export const filterCountries = (coffee,uistate) => {
   const toReturn = []
-  coffee.map((data) => {
+  coffee.forEach((data) => {
     const isPartOfRegion = (data.region == uistate.selected_region || uistate.selected_region == DEFAULT_STATE)
     const isPartOfVariety = (data.variety.indexOf(uistate.selected_variety)>-1 || uistate.selected_variety == DEFAULT_STATE)
     const isUnique = toReturn.indexOf(data.land)<0
@@ -34,8 +34,8 @@ export const filterCountries = (coffee,uistate) => {
 
 export const filterVarieties = (coffee,uistate) => {
   const toReturn = []
-  coffee.map((data) => {
-    data.variety.map((variety)=>{
+  coffee.forEach((data) => {
+    data.variety.forEach((variety)=>{
       const isPartOfRegion = (data.region == uistate.selected_region || uistate.selected_region == DEFAULT_STATE)
       const isPartOfCountry = (data.land == uistate.selected_country || uistate.selected_country == DEFAULT_STATE)
       const isUnique = toReturn.indexOf(variety)<0
@@ -53,7 +53,7 @@ export const filterVarieties = (coffee,uistate) => {
 export const filterFlags = (coffee,uistate) => {
   const toReturn = []
   const availableCountries = filterCountries(coffee,uistate)
-  coffee.map((data) => {
+  coffee.forEach((data) => {
     if(uistate.selected_country != DEFAULT_STATE){
       if(data.land==uistate.selected_country){
         toReturn.push(data.img)

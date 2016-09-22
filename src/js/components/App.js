@@ -6,7 +6,6 @@ import Status from '../containers/Status'
 const App = () => {
   return (
     <div>
-      <span>Select a coffee!</span>
       <CoffeeSelectors/>
       <Flags />
       <Status/>

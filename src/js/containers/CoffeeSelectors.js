@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   country:state.uistate.selected_country,
   region:state.uistate.selected_region,
   variety:state.uistate.selected_variety,
+  className:'coffeeselectors '+state.loadstate
 })
 
 const mapDispatchToProps =  ({
@@ -22,11 +23,11 @@ const mapDispatchToProps =  ({
 
 let CoffeeSelectors = (props) => {
   return (
-    <form>
+    <div className={props.className}>
       <ComboBox val={props.region} items = {props.regions} id = 'regions' label = 'Select a Region' onChange = {props.onRegionChange} />
       <ComboBox val={props.country} items = {props.countries} id = 'countries' label = 'Select a Country' onChange = {props.onCountryChange} />
       <ComboBox val={props.variety} items = {props.varieties} id = 'varieties' label = 'Select a Variety' onChange = {props.onVarietyChange} />
-    </form>
+    </div>
   )
 }
 

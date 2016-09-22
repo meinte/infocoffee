@@ -14,7 +14,7 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('react_container')
 )
 
 //TOD PUT SOMEPLACE
@@ -26,4 +26,3 @@ varieties.getData((err,result) => {
     store.dispatch(coffeeLoaded(result))
   }
 })
-

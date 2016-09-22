@@ -2,12 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({ 
-  className: state.loadstate 
+  className: 'state '+state.loadstate 
 })
 
 let Status = (props) => {
   return (
-    <div className={props.className}>{props.className}</div>
+    <div className={props.className}>
+      <div className='inner'></div>
+    </div>
   )
 }
 
