@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => ({ className: state.appstate })
-const mapDispatchToProps =  ({})
+const mapStateToProps = (state) => ({ 
+  className: state.loadstate 
+})
+
 let Status = (props) => {
   return (
     <div className={props.className}>{props.className}</div>
@@ -14,8 +16,7 @@ Status.propTypes = {
 };
 
 Status = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Status)
 
 export default Status

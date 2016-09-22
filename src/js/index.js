@@ -2,11 +2,11 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+
 import App from './components/App'
 import varieties from './services/coffee-varieties'
 import appReducers from './reducers'
-import {COFFEE_LOADED,COFFEE_LOAD_ERROR} from './actions'
+import {coffeeLoaded,coffeeLoadError} from './actions'
 
 const store = createStore(appReducers)
 
@@ -21,9 +21,9 @@ render(
 
 varieties.getData((err,result) => {
   if(err){
-    store.dispatch(COFFEE_LOAD_ERROR(err))
+    store.dispatch(coffeeLoadError(err))
   }else{
-    store.dispatch(COFFEE_LOADED(result))
+    store.dispatch(coffeeLoaded(result))
   }
 })
 

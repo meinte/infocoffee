@@ -7,7 +7,7 @@ var varieties;
       region: 'South America',
       land: 'Brazil',
       variety: ['Bourbon', 'Catuai', 'Caturra', 'Mundo Novo', 'Robusta'],
-      img: 'https://en.wikipedia.org/wiki/Gallery_of_sovereign_state_flags#/media/File:Flag_of_Brazil.svg'
+      img: 'https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg'
     },
     {
       id: 2,

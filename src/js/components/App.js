@@ -1,6 +1,6 @@
 import React from 'react'
 import CoffeeSelectors from '../Containers/CoffeeSelectors'
-import Flag from './Flag'
+import Flags from '../Containers/Flags'
 import Status from '../containers/Status'
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <div>
       <span>Select a coffee!</span>
       <CoffeeSelectors/>
-      <Flag className='hello' />
+      <Flags />
       <Status/>
     </div>
   )

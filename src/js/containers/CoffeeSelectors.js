@@ -1,33 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ComboBox from '../components/ComboBox'
-
-const getApplicableRegions = (coffee) =>{
-  return [
-    {id:1, text:'hello'},
-    {id:2, text:'hello2'}
-  ]
-}
+import {selectCountry,selectRegion,selectVariety} from '../actions'
+import {filterRegions,filterCountries,filterVarieties} from '../filters'
+import {DEFAULT_STATE} from '../reducers/uistate'
 
 const mapStateToProps = (state) => ({
-  regions: getApplicableRegions(state.coffee),
-  countries: getApplicableRegions(state.coffee),
-  varieties: getApplicableRegions(state.coffee),
+  regions: filterRegions(state.coffee,state.uistate),
+  countries: filterCountries(state.coffee,state.uistate),
+  varieties: filterVarieties(state.coffee,state.uistate),
+  country:state.uistate.selected_country,
+  region:state.uistate.selected_region,
+  variety:state.uistate.selected_variety,
 })
-const mapDispatchToProps =  null
+
+const mapDispatchToProps =  ({
+  onRegionChange: selectRegion,
+  onCountryChange: selectCountry,
+  onVarietyChange: selectVariety
+})
+
 let CoffeeSelectors = (props) => {
   return (
     <form>
-      <ComboBox items = {props.regions}/>
-      <ComboBox items = {props.countries}/>
-      <ComboBox items = {props.varieties}/>
+      <ComboBox val={props.region} items = {props.regions} id = 'regions' label = 'Select a Region' onChange = {props.onRegionChange} />
+      <ComboBox val={props.country} items = {props.countries} id = 'countries' label = 'Select a Country' onChange = {props.onCountryChange} />
+      <ComboBox val={props.variety} items = {props.varieties} id = 'varieties' label = 'Select a Variety' onChange = {props.onVarietyChange} />
     </form>
   )
 }
-
-CoffeeSelectors.propTypes = {
-  
-};
 
 CoffeeSelectors = connect(
   mapStateToProps,
